@@ -7,6 +7,9 @@
 
 #include "vga.h"
 
+/**
+ * Terminal Driver
+ */
 static const size_t VGA_WIDTH = 80;
 static const size_t VGA_HEIGHT = 25;
 static uint16_t* const VGA_MEMORY = (uint16_t*) 0xB8000;
@@ -40,7 +43,7 @@ void terminal_putentryat(unsigned char c, uint8_t color, size_t x, size_t y) {
 
 void terminal_putchar(char c) {
 	unsigned char uc = c;
-	if (c == '\n') {
+	if (c == '\n') { // newline support
 		terminal_row = terminal_row + 1;
 		terminal_column = -1;
 	} else 
