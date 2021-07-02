@@ -6,7 +6,6 @@
 #include <kernel/tty.h>
 
 #include "vga.h"
-
 /**
  * Terminal Driver
  */
