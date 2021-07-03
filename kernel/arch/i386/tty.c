@@ -45,7 +45,9 @@ void terminal_putchar(char c) {
 	if (c == '\n') { // newline support
 		terminal_row = terminal_row + 1;
 		terminal_column = -1;
-	} else 
+	} else if (c == '\t') { // tab escape support
+		terminal_column+=4;
+	} else
 	terminal_putentryat(uc, terminal_color, terminal_column, terminal_row);
     if (++terminal_column == VGA_WIDTH) {
 		terminal_column = 0;
